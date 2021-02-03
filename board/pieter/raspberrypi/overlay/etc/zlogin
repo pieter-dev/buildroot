@@ -1,4 +1,4 @@
-# promt
+# prompt
 PROMPT="[%m:%~]# "
 
 # bind home, delete and end keys to typical behavior
