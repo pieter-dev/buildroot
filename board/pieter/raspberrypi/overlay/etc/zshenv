@@ -1,0 +1,3 @@
+# first configuration file
+# loaded on all invocations of zsh (scripts - interactive shell - login shell)
+# used for setting environment variables for all users

@@ -1,11 +1,4 @@
-# prompt
-PROMPT="[%m:%~]# "
+# fourth configuration file 
+# loaded when starting a login shell 
+# used for executing user's commands at ending of initial progress
 
-# bind home, delete and end keys to typical behavior
-bindkey  "^[[H"   beginning-of-line
-bindkey  "^[[F"   end-of-line
-bindkey  "^[[3~"  delete-char
-
-# enable auto complete and bash auto complete scripts
-autoload -U +X compinit && compinit
-autoload -U +X bashcompinit && bashcompinit
