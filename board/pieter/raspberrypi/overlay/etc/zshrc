@@ -1,0 +1,15 @@
+# third configuration file
+# loaded when starting an interactive shell
+# used for setting interactive shell configuration and executing commands for all users
+
+# prompt
+PROMPT="[%m:%~]# "
+
+# bind home, delete and end keys to typical behavior
+bindkey  "^[[H"   beginning-of-line
+bindkey  "^[[F"   end-of-line
+bindkey  "^[[3~"  delete-char
+
+# enable auto complete and bash auto complete scripts
+autoload -U +X compinit && compinit
+autoload -U +X bashcompinit && bashcompinit

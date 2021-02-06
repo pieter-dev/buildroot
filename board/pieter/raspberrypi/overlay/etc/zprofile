@@ -1,0 +1,5 @@
+# second configuration file
+# loaded when starting a login shell 
+# Used for executing commands at start for all users
+
+emulate sh -c 'source /etc/profile'
