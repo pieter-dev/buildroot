@@ -17,7 +17,6 @@ config BR2_PACKAGE_NETWORK_MANAGER
 	select BR2_PACKAGE_UTIL_LINUX_LIBUUID
 	select BR2_PACKAGE_WIRELESS_TOOLS
 	select BR2_PACKAGE_WIRELESS_TOOLS_LIB
-	select BR2_PACKAGE_READLINE
 	select BR2_PACKAGE_LIBNDP
 	help
 	  NetworkManager is a set of co-operative tools that make
@@ -58,6 +57,22 @@ config BR2_PACKAGE_NETWORK_MANAGER_OVS
 	select BR2_PACKAGE_JANSSON
 	help
 	  This option enables support for OpenVSwitch
+
+choice
+	prompt "Select readline compatible library"
+	default BR2_PACKAGE_NETWORK_MANAGER_READLINE
+	help
+	  NetworkManager requires a readline compatible library.
+
+config BR2_PACKAGE_NETWORK_MANAGER_READLINE
+	bool "readline"
+	select BR2_PACKAGE_READLINE
+
+config BR2_PACKAGE_NETWORK_MANAGER_LIBEDIT
+	bool "libedit"
+	select BR2_PACKAGE_LIBEDIT
+
+endchoice
 
 endif
 
