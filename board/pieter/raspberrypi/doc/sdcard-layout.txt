@@ -1,0 +1,25 @@
+Create an sd card with 4 partitions:
+
+partition	  size (MiB)	size (b)	  sectors		start	    stop
+---------------------------------------------------------------
+boot	      32	        33554432	  65536		  1	        65536
+rootfs1	    1024	      1073741824	2097152		65537	    2162688
+rootfs2	    1024	      1073741824	2097152		2162689	  4259840
+roothome    1024	      1073741824	2097152		4259841	  6356992
+
+# fdisk -l /dev/mmcblk0
+Disk /dev/mmcblk0: 15 GB, 15931539456 bytes, 31116288 sectors
+486192 cylinders, 4 heads, 16 sectors/track
+Units: sectors of 1 * 512 = 512 bytes
+
+Device       Boot StartCHS    EndCHS        StartLBA     EndLBA    Sectors  Size Id Type
+/dev/mmcblk0p1 *  0,0,2       4,20,17              1      65536      65536 32.0M  c Win95 FAT32 (LBA)
+/dev/mmcblk0p2    4,20,18     23,51,29         65537     372736     307200  150M 83 Linux
+/dev/mmcblk0p3    1023,3,16   1023,3,16      2162689    4259840    2097152 1024M 83 Linux
+/dev/mmcblk0p4    1023,3,16   1023,3,16      4259841    6356992    2097152 1024M 83 Linux
+
+When creating the roothome partition, format it:
+mkfs.ext4 /dev/mmcblk0p4
+
+Afterwards add it to fstab to auto mount it.
+
