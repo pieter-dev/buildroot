@@ -1,0 +1,16 @@
+#!/bin/sh
+
+case "$1" in
+	start)
+		modprobe fuse
+		[ -d /mnt/etc-ro ] || mkdir -p /mnt/etc-ro
+		[ -d /root/etc ] || mkdir -p /root/etc
+		mount -o bind,ro /etc /mnt/etc-ro
+		unionfs -o cow,allow_other,use_ino,nonempty /root/etc=RW:/mnt/etc-ro=RO /etc
+		;;
+	*)
+		echo "uage: $0 start"
+		;;
+esac
+
+exit 0
